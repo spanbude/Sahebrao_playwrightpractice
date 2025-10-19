@@ -47,10 +47,11 @@ await expect(data.booking ).toMatchObject({
 
 test('request body via json file', async({request})=>{
 
-const swapnil= await request.post("https://restful-booker.herokuapp.com/booking",{data:apijson})
+const swapnil= await request.post("https://restful-booker.herokuapp.com/booking",{data:apijson.newdata1})
 const data=await swapnil.json()
 console.log(data)
-await expect(data.booking ).toMatchObject({apijson})
+expect(data.booking).toMatchObject(apijson.newdata1)
+
 
 
 
